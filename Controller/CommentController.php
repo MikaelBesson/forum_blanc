@@ -2,15 +2,15 @@
 
 class CommentController extends Controller {
 
-    public function displayComment(int $commentId) {
+    public function displayComment(int $messageId) {
 
-        if($commentId != -1){
+        if($messageId != -1){
             $conn = (new Db())->connect();
-            $req = $conn->prepare('SELECT * FROM forum-reponses WHERE id=:id');
-            $req->bindParam(':id', $commentId);
+            $req = $conn->prepare('SELECT * FROM commentaires WHERE id=:id');
+            $req->bindParam(':id', $messageId);
             if($req->execute()) {
-                $commentData = $req->fetch();
-                $this->render('readArticle',$data, $commentData);
+                $messageData = $req->fetch();
+                $this->render('readArticle', $messageData);
             }
         }
     }

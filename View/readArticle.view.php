@@ -18,8 +18,8 @@
     </div>
     <div>
         <div class="comment">
-            <p><?= $data1['message']?></p>
-            <span class="auteur"><?= $data1['auteur'] ." ". $data1['date_reponse']?></span>
+            <p><?= $info['message']?></p>
+            <span class="auteur"><?= $info['auteur'] ." ". $info['date_reponse']?></span>
         </div>
     </div>
 </body>

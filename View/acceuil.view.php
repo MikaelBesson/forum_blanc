@@ -16,7 +16,7 @@
         require_once 'Classes/Db.php';
 
         $conn = (new Db())->connect();
-        $req = $conn->prepare('SELECT * FROM forum_sujets');
+        $req = $conn->prepare('SELECT * FROM sujets');
         if($req->execute()){
             foreach ($req->fetchAll() as $article) {
                 ?>

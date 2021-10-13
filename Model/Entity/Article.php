@@ -3,18 +3,18 @@
 class article {
 
     private ?int $id;
-    private string $name;
-    private string $lastname;
-    private string $title;
-    private string $content;
+    private string $nom;
+    private string $prenom;
+    private string $titre;
+    private string $message;
     private ?int $date;
 
-    public function __construct(int $id, $name, $lastname, $title, $content, int $date){
+    public function __construct(int $id, $nom, $prenom, $titre, $message, int $date){
         $this->id =$id;
-        $this->name =$name;
-        $this->lastname =$lastname;
-        $this->title =$title;
-        $this->content =$content;
+        $this->nom =$nom;
+        $this->prenom =$prenom;
+        $this->titre =$titre;
+        $this->message =$message;
         $this->date =$date;
     }
 
@@ -37,65 +37,65 @@ class article {
     /**
      * @return string
      */
-    public function getName(): string
+    public function getNom(): string
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
-     * @param string $name
+     * @param string $nom
      */
-    public function setName(string $name): void
+    public function setNom(string $nom): void
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param string $lastname
-     */
-    public function setLastname(string $lastname): void
-    {
-        $this->lastname = $lastname;
+        $this->name = $nom;
     }
 
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getPrenom(): string
     {
-        return $this->title;
+        return $this->prenom;
     }
 
     /**
-     * @param string $title
+     * @param string $prenom
      */
-    public function setTitle(string $title): void
+    public function setPrenom(string $prenom): void
     {
-        $this->title = $title;
+        $this->lastname = $prenom;
     }
 
     /**
      * @return string
      */
-    public function getContent(): string
+    public function getTitre(): string
     {
-        return $this->content;
+        return $this->titre;
     }
 
     /**
-     * @param string $content
+     * @param string $titre
      */
-    public function setContent(string $content): void
+    public function setTitre(string $titre): void
     {
-        $this->content = $content;
+        $this->title = $titre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage(string $message): void
+    {
+        $this->content = $message;
     }
 
     /**

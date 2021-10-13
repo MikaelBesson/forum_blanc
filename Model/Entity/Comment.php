@@ -3,13 +3,13 @@
 class comment {
 
     private ?int $id;
-    private string $autor;
+    private string $auteur;
     private string $message;
     private ?int $date;
 
-    public function __construct(int $id, $autor, $message, int $date){
+    public function __construct(int $id, $auteur, $message, int $date){
         $this->id =$id;
-        $this->autor =$autor;
+        $this->autor =$auteur;
         $this->message =$message;
         $this->date =$date;
     }
@@ -33,17 +33,17 @@ class comment {
     /**
      * @return string
      */
-    public function getAutor(): string
+    public function getAuteur(): string
     {
-        return $this->autor;
+        return $this->auteur;
     }
 
     /**
-     * @param string $autor
+     * @param string $auteur
      */
-    public function setAutor(string $autor): void
+    public function setAuteur(string $auteur): void
     {
-        $this->autor = $autor;
+        $this->autor = $auteur;
     }
 
     /**

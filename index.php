@@ -6,17 +6,19 @@ require $_SERVER['DOCUMENT_ROOT'] . '/Controller/HomeController.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/Controller/ArticleController.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/Controller/CommentController.php';
 
+
+
 if(isset($_GET['ctrl'])) {
     switch($_GET['ctrl']) {
         case 'article':
             $controller = new ArticleController();
             $controller->displayArticle($_GET['id'] ?? -1);
-            break;
+            $controller1 =new CommentController();
+            $controller1->displayComment($_GET['id'] ?? -1);
+        break;
     }
 }
 else {
-    $controller1 =new CommentController();
-    $controller1->displayComment($_GET['id'] ?? -1);
 
     $controller = new HomeController();
     $controller->displayAcceuil();
