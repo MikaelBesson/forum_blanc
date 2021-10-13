@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+#acceuil_Div {
+    width: 80%;
+    height: 100%;
+    background-color: rgba(119, 215, 193, 0.43);
+    margin: 20px auto auto;
+}
+
+a{
+    margin-left: 15px;
+    color: #a60c0c;
+}
+
+p{
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 25px;
+}
+
+.article{
+    width: 60%;
+    height: 200px;
+    border: 2px solid black;
+    margin: 20px auto auto;
+    background-color: rgba(232, 115, 77, 0.5);
+}
+.t1{
+    margin: 0 20%;
+    font-size: x-large;
+    text-decoration: underline red;
+}
+
+.auteur{
+    margin-left: 70%;
+    text-decoration: underline red;
+}
+
