@@ -6,10 +6,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/asset/style.css">
     <title>Acceuil</title>
 </head>
 <body>
+    <div id="header">
+        <ul class="head">
+            <li><a href="">Connection</a></li>
+            <li><a href="/index.php?ctrl=AddArticle">Ajoutez un sujet</a></li>
+        </ul>
+    </div>
+
     <div id="acceuil_Div">
         <h1>Bienvenue sur le forum !!</h1>
         <?php

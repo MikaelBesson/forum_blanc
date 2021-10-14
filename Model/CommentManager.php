@@ -1,9 +1,5 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Db.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Comment.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/cleanInput.php';
-
 
 class CommentManager {
 
@@ -35,9 +31,9 @@ class CommentManager {
         $req = $conn->connect()->prepare("SELECT * FROM commentaires WHERE id = :id");
         $req->bindValue(':id', $id);
         $req->execute();
-        $info = $req->fetch();
-        if($info) {
-            return $message = new comment($info['id'], $info['auteur'], $info['message'], $info['date']);
+        $data = $req->fetch();
+        if($data) {
+            return $message = new comment($data['id'], $data['auteur'], $data['message'], $data['date']);
         }
         else{
             return null;

@@ -1,6 +1,6 @@
 <?php
 
-class comment {
+class Comment {
 
     private ?int $id;
     private string $auteur;
@@ -9,7 +9,7 @@ class comment {
 
     public function __construct(int $id, $auteur, $message, int $date){
         $this->id =$id;
-        $this->autor =$auteur;
+        $this->auteur =$auteur;
         $this->message =$message;
         $this->date =$date;
     }

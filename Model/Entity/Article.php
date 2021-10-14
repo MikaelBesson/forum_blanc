@@ -114,4 +114,14 @@ class article {
         $this->date = $date;
     }
 
+    public function getArticle(): string
+    {
+        return $this->article;
+    }
+
+    public function setArticle(string $article): void
+    {
+        $this->article = $article;
+    }
+
 }
