@@ -103,4 +103,27 @@ legend{
 #submit_sujet:hover{
     box-shadow: 0 0 5px 2px red;
 }
+.inscription{
+    height: 150px;
+}
+.form {
+    width: 60%;
+    height: 200px;
+    background-color: rgba(191, 142, 215, 0.47);
+    margin:  50px auto auto;
+    line-height: 20px;
+}
+.form label{
+    padding-left: 10%;
+    display: block;
+    width: 300px;
+    float: left;
+}
+#submitRegister{
+    margin-left: 25%;
+}
+
+.info {
+    text-align: center;
+}
 

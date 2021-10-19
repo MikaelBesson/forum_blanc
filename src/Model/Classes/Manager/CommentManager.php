@@ -1,5 +1,12 @@
 <?php
 
+namespace Mika\App\Model;
+
+
+use Mika\App\Classes\cleanInput;
+use Mika\App\Classes\Db;
+use Mika\App\Model\Entity\Comment;
+use PDOException;
 
 class CommentManager {
 

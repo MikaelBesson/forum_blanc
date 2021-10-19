@@ -1,5 +1,7 @@
 <?php
 
+namespace Mika\App\Model\Classes\Entity;
+
 class article {
 
     private ?int $id;
@@ -7,15 +9,15 @@ class article {
     private string $prenom;
     private string $titre;
     private string $message;
-    private ?int $date;
 
-    public function __construct(int $id, $nom, $prenom, $titre, $message, int $date){
+
+    public function __construct(int $id, $nom, $prenom, $titre, $message){
         $this->id =$id;
         $this->nom =$nom;
         $this->prenom =$prenom;
         $this->titre =$titre;
         $this->message =$message;
-        $this->date =$date;
+
     }
 
     /**
@@ -98,21 +100,7 @@ class article {
         $this->content = $message;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getDate(): ?int
-    {
-        return $this->date;
-    }
 
-    /**
-     * @param int|null $date
-     */
-    public function setDate(?int $date): void
-    {
-        $this->date = $date;
-    }
 
     public function getArticle(): string
     {

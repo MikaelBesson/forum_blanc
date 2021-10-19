@@ -12,34 +12,20 @@
 <body>
     <div id="header">
         <ul class="head">
-            <li><a href="">Connection</a></li>
-            <li><a href="/index.php?ctrl=AddArticle">Ajoutez un sujet</a></li>
+            <li><a href="/index.php?ctrl=connexionForm">Connection</a></li>
+            <li><a href="/index.php?ctrl=formulaire">Inscription</a></li>
+            <li><a href="/index.php?ctrl=newArticleForm">Ajoutez un sujet</a></li>
         </ul>
     </div>
 
     <div id="acceuil_Div">
         <h1>Bienvenue sur le forum !!</h1>
         <?php
-        require_once 'Classes/Db.php';
-
-        $conn = (new Db())->connect();
-        $req = $conn->prepare('SELECT * FROM sujets');
-        if($req->execute()){
-            foreach ($req->fetchAll() as $article) {
-                ?>
-                <a href="/index.php?ctrl=article&id=<?=$article['id']?>"><?= $article["titre"]?></a>
-                <p>  sujet proposer par : <?= $article["prenom"] ." ". $article["nom"]?></p><br>
-                <?php
-            }
-        }
-        else{
-            ?>
-            <p>erreur</p>
-            <?php
-        }
+        foreach ($data as $sujet){ ?>
+            <a href="/index.php?ctrl=article&id=<?= $sujet->getId() ?>"><span class="t1"><?= $sujet->getTitre()?> : </span></a><br>
+            <span class="auteur">Proposer par : <?= $sujet->getNom()." ". $sujet->getPrenom()?></span><br><br>
+        <?php }
         ?>
     </div>
-
-
 </body>
 </html>

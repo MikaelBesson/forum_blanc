@@ -11,25 +11,34 @@
 <body>
     <div>
         <div class="article">
-            <span class="t1"><?= $data['article']['titre']?> :</span><br>
-            <p><?= $data['article']['message']?></p>
+            <span class="t1"><?= $data->getTitre()?> : </span><br>
+            <p><?= $data->getMessage()?></p>
         </div>
-            <span class="auteur"><?= $data['article']['prenom'] ." ". $data['article']['nom'] . " ". $data['article']['date']?></span>
+            <span class="auteur">Proposer par : <?= $data->getPrenom() ." ". $data->getNom()?></span>
 
     </div>
     <div>
         <div class="comment">
             <?php
-            foreach ($data['comments'] as $comment){?>
-                 <p><?= $comment['message']?></p>
-            <span class="auteur"><?= $comment['auteur'] ." ". $comment['date']?></span><?php
+            foreach ($data as $comment){?>
+                 <p><?= $comment->getMesage()?></p>
+            <span class="auteur"><?= $comment->getAuteur() ?></span><?php
             }
             ?>
         </div>
         <a class="reponse" href="./index.php">Retour a l'acceuil</a> <span id="addRep">Ajoutez une reponse :<button>&#710;</button></span>
-    </div>
-    <div id="hidden">
-    </div>
+
+        <div id="hidden">
+
+        </div>
+        <!--
+         <div class="info">
+            <?php /*if($data !== null) {
+            echo $data;
+        } */?>
+        </div>
+         -->
+
 
     <script src="/asset/app.js"></script>
 </body>

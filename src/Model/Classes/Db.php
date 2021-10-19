@@ -1,4 +1,7 @@
 <?php
+namespace Mika\App\Model\Classes;
+use PDO;
+use PDOException;
 
 class Db {
 

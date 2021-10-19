@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="addArticle">
-        <form action="/index.php?ctrl=AddArticle" method="post">
+        <form action="/index.php?ctrl=addArticle" method="post">
             <fieldset>
                 <legend>Nouveaux Sujet :</legend>
                 <label for="nom">Entrez votre Nom :</label>
@@ -27,8 +27,13 @@
             <a href="/index.php">Retour a l'acceuil</a>
             <input type="submit" value="Envoyer" id="submit_sujet"><br>
         </form>
-
-        <div class="hidden_info">
-        </div>
     </div>
+    <!--
+     <div class="info">
+        <?php /*if($data !== null) {
+        echo $data;
+    } */?>
+    </div>
+     -->
+
 </body>

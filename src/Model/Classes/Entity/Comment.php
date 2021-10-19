@@ -1,5 +1,7 @@
 <?php
 
+namespace Mika\App\Model\Classes\Entity;
+
 class Comment {
 
     private ?int $id;
@@ -7,11 +9,10 @@ class Comment {
     private string $message;
     private ?int $date;
 
-    public function __construct(int $id, $auteur, $message, int $date){
+    public function __construct(int $id, $auteur, $message){
         $this->id =$id;
         $this->auteur =$auteur;
         $this->message =$message;
-        $this->date =$date;
     }
 
     /**

@@ -1,8 +1,10 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Db.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Article.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/cleanInput.php';
+namespace Mika\App\Model\Classes\Manager;
+
+use Mika\App\Model\Classes\Db;
+use Mika\App\Model\Classes\Entity\article;
+use Mika\App\Model\Classes\cleanInput;
 
 
 class ArticleManager {
@@ -18,7 +20,7 @@ class ArticleManager {
         $req->execute();
         $data = $req->fetchAll();
         foreach ($data as $data_article){
-            $articles[] = new article($data_article['id'], $data_article['nom'], $data_article['prenom'], $data_article['titre'], $data_article['message'], $data_article['date']);
+            $articles[] = new article($data_article['id'], $data_article['nom'], $data_article['prenom'], $data_article['titre'], $data_article['message']);
         }
         return $articles;
     }
@@ -56,26 +58,23 @@ class ArticleManager {
         $conn = new Db();
         $verif = new cleanInput();
 
-        $article = $verif->verifInput($nom);
-        $article = $verif->verifInput($prenom);
-        $article = $verif->verifInput($titre);
-        $article = $verif->verifInput($message);
-        $req = $conn->connect()->prepare("INSERT INTO sujets($nom, $prenom, $titre, $message) VALUES (:nom :prenom :titre :message)");
-        $req->bindValue(':nom', $nom);
-        $req->bindValue(':prenom', $prenom);
-        $req->bindValue(':titre', $titre);
-        $req->bindValue(':content', $message);
-        
-        try {
-            if($req->execute()){
-                return "Article ajouté avec succès";
-            }
-            else{
-                return "erreur lors de l'ajout de l'article";
-            }
+        $nom = $verif->verifInput($nom);
+        $prenom= $verif->verifInput($prenom);
+        $titre = $verif->verifInput($titre);
+        $message = $verif->verifInput($message);
+
+
+        $req = $conn->connect()->prepare("INSERT INTO sujets(nom, prenom, titre, message) VALUES (:nom, :prenom, :titre, :message)");
+        $req->bindParam(':nom', $nom);
+        $req->bindParam(':prenom', $prenom);
+        $req->bindParam(':titre', $titre);
+        $req->bindParam(':message', $message);
+
+        if($req->execute()){
+            return "Article ajouté avec succès";
         }
-        catch(PDOException $e){
-            return "l'article est deja present";
+        else{
+            return "erreur lors de l'ajout de l'article";
         }
     }
 

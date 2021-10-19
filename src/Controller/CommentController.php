@@ -1,4 +1,7 @@
 <?php
+namespace Mika\App\Controller;
+use Mika\App\Classes\Controller;
+use Mika\App\Classes\Db;
 
 class CommentController extends Controller {
 

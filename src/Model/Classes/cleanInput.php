@@ -1,4 +1,5 @@
 <?php
+namespace Mika\App\Model\Classes;
 
 class cleanInput {
     // cleaning of inputs
