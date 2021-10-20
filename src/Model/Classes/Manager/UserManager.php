@@ -9,20 +9,9 @@ use Mika\App\Model\Classes\Entity\user;
 
 class UserManager {
 
-    public function checkLog($email) {
-        $conn = new Db();
-        $req = $conn->connect()->prepare('SELECT * FROM users WHERE email =:email');
-        $req->bindParam(':email', $email);
-        if($_POST['email'] === $email){
-            $req->execute();
-        }
-        else{
-            return "Le mail est deja utiliser";
-        }
-        return null;
-    }
-
-
+    /**
+     * @return array
+     */
     public function getUsers(){
         $conn = new Db();
         $users = [];
@@ -35,6 +24,10 @@ class UserManager {
         return $users;
     }
 
+    /**
+     * @param int $id
+     * @return user|null
+     */
     public function getUser(int $id){
         $conn = new Db();
         $req = $conn->connect()->prepare("SELECT * FROM users WHERE id = :id");
@@ -49,6 +42,11 @@ class UserManager {
         }
     }
 
+    /**
+     * @param $nom
+     * @param $prenom
+     * @param $email
+     */
     public function addUser($nom, $prenom, $email){
         $conn = new Db();
         $verif =new cleanInput();
@@ -61,15 +59,14 @@ class UserManager {
         $req->bindParam(':nom',$nom);
         $req->bindParam(':prenom', $prenom);
         $req->bindParam(':email', $email);
+        $req->execute();
 
-        if($req->execute()){
-            return "utilisateur ajouté avec succès";
-        }
-        else {
-            return "erreur lors de l'ajout de l'utilisateur";
-        }
+
     }
 
+    /**
+     * @param $user
+     */
     public function editUser($user){
         $conn = new Db();
         $req = $conn->connect()->prepare("UPDATE users SET nom = :nom WHERE id =:id");
@@ -83,6 +80,10 @@ class UserManager {
         }
     }
 
+    /**
+     * @param $userId
+     * @return string
+     */
     public function deleteUser($userId){
         $conn =new Db();
         $req = $conn->connect()->prepare("SELECT nom FROM users WHERE id = :id");

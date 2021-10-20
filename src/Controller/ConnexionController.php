@@ -8,7 +8,6 @@ class ConnexionController extends Controller {
     public function displayAddUser(){
         if(isset($_SESSION['info'])){
             $var = $_SESSION['info'];
-
         }
         else{
             $var = null;
@@ -18,10 +17,12 @@ class ConnexionController extends Controller {
 
     public function addUser($nom, $prenom, $email){
         $manager = new UserManager();
-        return $manager->addUser($nom,$prenom,$email,);
+        $manager->addUser($nom,$prenom,$email,);
     }
 
     public function displayConnexion(){
         $this->render('connexion');
     }
+
+    
 }
