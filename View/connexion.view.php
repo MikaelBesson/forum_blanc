@@ -35,13 +35,6 @@
             </div>
     </form>
 </div>
-<!--
-<div class="info">
-    <?php /* if($data !== null) {
-    echo $data;
-} */?>
-</div>
- -->
 
 </body>
 </html>

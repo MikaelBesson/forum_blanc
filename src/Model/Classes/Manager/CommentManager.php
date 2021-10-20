@@ -1,12 +1,11 @@
 <?php
 
-namespace Mika\App\Model;
+namespace Mika\App\Model\Classes\Manager;
 
 
-use Mika\App\Classes\cleanInput;
-use Mika\App\Classes\Db;
-use Mika\App\Model\Entity\Comment;
-use PDOException;
+use Mika\App\Model\Classes\cleanInput;
+use Mika\App\Model\Classes\Db;
+use Mika\App\Model\Classes\Entity\Comment;
 
 class CommentManager {
 
@@ -22,7 +21,7 @@ class CommentManager {
         $info = $req->fetchAll();
         foreach ($info as $data_message){
 
-            $messages[] = new comment($data_message['id'], $data_message['auteur'], $data_message['message'], $data_message['date']);
+            $messages[] = new comment($data_message['id'], $data_message['auteur'], $data_message['message']);
         }
         return $messages;
     }
@@ -40,7 +39,7 @@ class CommentManager {
         $req->execute();
         $data = $req->fetch();
         if($data) {
-            return $message = new comment($data['id'], $data['auteur'], $data['message'], $data['date']);
+            return $message = new comment($data['id'], $data['auteur'], $data['message']);
         }
         else{
             return null;
@@ -81,11 +80,12 @@ class CommentManager {
      * edit a comment
      * @param comment $comment
      */
-    public function editMessage(message $message){
+    public function editMessage($auteur, $message){
         $conn = new Db();
+        $req = new Comment($auteur, $message);
         $req = $conn->connect()->prepare('UPDATE commentaires SET auteur = :auteur WHERE id =:id');
         $req->bindValue(':auteur', $auteur->getAuteur());
-        $req->bindValue('id', $auteur->getId());
+        $req->bindValue(':id', $auteur->getId());
         if($req->execute()){
             echo 'commentaire modifié avec succès';
         }
@@ -106,17 +106,4 @@ class CommentManager {
             return 'erreur pendant la supression';
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

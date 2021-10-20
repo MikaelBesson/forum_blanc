@@ -1,10 +1,8 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-use Mika\App\Controller\AddArticleController;
-use Mika\App\Controller\ConnexionController;
-use Mika\App\Controller\ArticleController;
-use Mika\App\Controller\HomeController;
+use Mika\App\Controller\{AddArticleController, ConnexionController, ArticleController, HomeController};
+
 
 session_start();
 
@@ -36,7 +34,7 @@ if(isset($_GET['ctrl'])) {
         case 'inscription':
             $controller = new ConnexionController();
             if(isset($_POST['nom'],$_POST['prenom'],$_POST['email'])){
-                $_SESSION['info'] = $controller->addUser($_POST['nom'],$_POST['prenom'],$_POST['email']);
+                $controller->addUser($_POST['nom'],$_POST['prenom'],$_POST['email']);
             }
             header('Location: index.php?ctrl=formulaire');
             break;

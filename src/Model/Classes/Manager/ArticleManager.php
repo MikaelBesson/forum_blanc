@@ -2,9 +2,9 @@
 
 namespace Mika\App\Model\Classes\Manager;
 
-use Mika\App\Model\Classes\Db;
+use Mika\App\Model\Classes\{Db, cleanInput};
 use Mika\App\Model\Classes\Entity\article;
-use Mika\App\Model\Classes\cleanInput;
+
 
 
 class ArticleManager {

@@ -31,14 +31,6 @@
         <div id="hidden">
 
         </div>
-        <!--
-         <div class="info">
-            <?php /*if($data !== null) {
-            echo $data;
-        } */?>
-        </div>
-         -->
-
 
     <script src="/asset/app.js"></script>
 </body>

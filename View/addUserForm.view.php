@@ -26,6 +26,7 @@
                 <input type="text" name="email" id="email" placeholder="Votre email ici" title="adresse valide merci"
                        required><br><br>
             </fieldset>
+
             <div class="subMessage">
                 <div class="submit">
                     <a href="/index.php">Retour a l'acceuil</a>
@@ -35,15 +36,6 @@
             </div>
         </div>
     </form>
-    <!--
-    <div class="info">
-        <?php /*if($data !== null) {
-        echo $data;
-    } */?>
-    </div>
-     -->
-
-
 </body>
 </html>
 

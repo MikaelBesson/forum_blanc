@@ -28,12 +28,5 @@
             <input type="submit" value="Envoyer" id="submit_sujet"><br>
         </form>
     </div>
-    <!--
-     <div class="info">
-        <?php /*if($data !== null) {
-        echo $data;
-    } */?>
-    </div>
-     -->
 
 </body>

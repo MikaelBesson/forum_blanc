@@ -6,23 +6,15 @@ use Mika\App\Model\Classes\Manager\UserManager;
 
 class ConnexionController extends Controller {
     public function displayAddUser(){
-        if(isset($_SESSION['info'])){
-            $var = $_SESSION['info'];
-        }
-        else{
-            $var = null;
-        }
-        $this->render('addUserForm',$var);
+        $this->render('addUserForm');
     }
 
     public function addUser($nom, $prenom, $email){
         $manager = new UserManager();
-        $manager->addUser($nom,$prenom,$email,);
+        $manager->addUser($nom,$prenom,$email);
     }
 
     public function displayConnexion(){
         $this->render('connexion');
     }
-
-    
 }
