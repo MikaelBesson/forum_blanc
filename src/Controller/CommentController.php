@@ -2,7 +2,8 @@
 namespace Mika\App\Controller;
 use Mika\App\Model\Classes\Controller;
 use Mika\App\Model\Classes\Db;
-use Mika\App\Model\CommentManager;
+use Mika\App\Model\Classes\Entity\Comment;
+use Mika\App\Model\Classes\Manager\CommentManager;
 
 class CommentController extends Controller {
 
@@ -19,13 +20,13 @@ class CommentController extends Controller {
         }
     }
 
-    public function addComment(int $messageId) {
+    public function addComment(Comment $comment) {
         $conn = (new Db())->connect();
-        $req =$conn->prepare('SELECT message FROM commentaires WHERE id = :id');
-        $req->bindParam('id', $messageId);
-        if($req->execute()){
-            $result = new CommentManager();
-            $result->addMessage('$_post["auteur"]', '$_post["message"]');
+        $req =$conn->prepare('INSERT INTO commentaires (message, sujets_fk) VALUES (:message, :sujets_fk)');
+        $req->bindValue(':message', $comment->getMessage());
+        $req->bindValue(':sujets_fk', $comment->getId());
+        if($req->execute()) {
+            echo 'Commentaire ajouté';
         }
     }
 }

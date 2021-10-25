@@ -64,7 +64,7 @@ class ArticleManager {
         $message = $verif->verifInput($message);
 
 
-        $req = $conn->connect()->prepare("INSERT INTO sujets(nom, prenom, titre, message) VALUES (:nom, :prenom, :titre, :message)");
+        $req = $conn->connect()->prepare("INSERT INTO sujets('nom', 'prenom', 'titre', 'message') VALUES (:nom, :prenom, :titre, :message)");
         $req->bindParam(':nom', $nom);
         $req->bindParam(':prenom', $prenom);
         $req->bindParam(':titre', $titre);

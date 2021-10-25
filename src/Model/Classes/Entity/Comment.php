@@ -5,7 +5,7 @@ namespace Mika\App\Model\Classes\Entity;
 class Comment {
 
     private ?int $id;
-    private string $auteur;
+    private ?string $auteur;
     private string $message;
     private ?int $date;
 
