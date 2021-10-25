@@ -1,3 +1,10 @@
+<?php
+
+use Mika\App\Model\Classes\Manager\CommentManager;
+use Mika\App\Controller\CommentController;
+
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -21,7 +28,7 @@
         <div class="comment">
             <?php
             foreach ($data as $comment){?>
-                 <p><?= $comment->getMesage()?></p>
+                 <p><?= $comment->getMessage()?></p>
             <span class="auteur"><?= $comment->getAuteur() ?></span><?php
             }
             ?>
@@ -29,6 +36,15 @@
         <a class="reponse" href="./index.php">Retour a l'acceuil</a> <span id="addRep">Ajoutez une reponse :<button>&#710;</button></span>
 
         <div id="hidden">
+            <form action="CommentController.php" method="post">
+                <fieldset id="divRep">
+                    <label for="auteur">Votre nom :</label>
+                    <input type="text" name="auteur" id="auteur"><br>
+                    <label for="textarea">Votre message :</label><br>
+                    <textarea name="textarea" id="textarea" cols="100" rows="10"></textarea><br><br>
+                    <input type="button" value="Envoyer" id="messageSubmit">
+                </fieldset>
+            </form>
 
         </div>
 

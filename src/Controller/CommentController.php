@@ -20,13 +20,10 @@ class CommentController extends Controller {
         }
     }
 
-    public function addComment(Comment $comment) {
-        $conn = (new Db())->connect();
-        $req =$conn->prepare('INSERT INTO commentaires (message, sujets_fk) VALUES (:message, :sujets_fk)');
-        $req->bindValue(':message', $comment->getMessage());
-        $req->bindValue(':sujets_fk', $comment->getId());
-        if($req->execute()) {
-            echo 'Commentaire ajouté';
+    public function AddComment($auteur,$message){
+        if(isset($_POST['auteur'],$_POST['message'])){
+            $message = new CommentManager();
+            $message->addMessage($_POST['auteur'],$_POST['message']);
         }
     }
 }

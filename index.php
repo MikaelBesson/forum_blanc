@@ -1,7 +1,11 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-use Mika\App\Controller\{AddArticleController, ConnexionController, ArticleController, HomeController};
+use Mika\App\Controller\AddArticleController;
+use Mika\App\Controller\ConnexionController;
+use Mika\App\Controller\ArticleController;
+use Mika\App\Controller\HomeController;
+use \Mika\App\Controller\CommentController;
 
 
 session_start();
@@ -44,6 +48,13 @@ if(isset($_GET['ctrl'])) {
             $controller->displayConnexion();
             break;
 
+        case 'addComment':
+            $controller =new CommentController();
+            if(isset($_POST['auteur'],$_POST['message'])){
+                $controller->AddComment($_POST['auteur'],$_POST['message']);
+            }
+            header('Location:index.php?ctrl=article');
+            break;
         }
 }
 else {
